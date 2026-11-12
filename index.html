@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<!-- lang="pt-BR" informa o idioma da página para leitores de tela e tradutores. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Viva Sport: artigos esportivos, roupas, calçados e acessórios para você praticar seu esporte favorito.">
+  <meta name="theme-color" content="#123B5D">
+  <title>Viva Sport — Sua loja de artigos esportivos</title>
+
+  <!-- Google Fonts: carrega a fonte Poppins usada no site. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Arquivo externo de estilos. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="topo">
+
+  <!-- Link de acessibilidade: aparece quando o usuário navega pelo teclado. -->
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- Cabeçalho com logo e navegação principal. -->
+  <header class="cabecalho">
+    <div class="container">
+      <a class="logo" href="#topo" aria-label="Viva Sport - início">
+        <span>🏅 Viva Sport</span>
+      </a>
+      <nav class="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#categorias">Categorias</a></li>
+          <li><a href="#como-funciona">Como comprar</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a class="botao botao-contorno" href="#contato">Fale conosco</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- HERO: apresentação da loja com formulário de busca. -->
+    <section class="hero">
+      <div class="hero-fundo"></div>
+      <div class="container">
+        <div class="hero-texto">
+          <span class="hero-tag">Sua paixão pelo esporte começa aqui</span>
+          <h1>Supere seus limites. Encontre seu melhor equipamento.</h1>
+          <p>Na Viva Sport você encontra tênis, roupas, acessórios e equipamentos para treinar, competir e aproveitar cada movimento.</p>
+
+          <form class="busca" action="#produtos" method="get" role="search">
+            <label class="campo">
+              <span>O que você procura?</span>
+              <input type="search" name="busca" placeholder="Tênis, bola, camiseta...">
+            </label>
+            <label class="campo">
+              <span>Modalidade</span>
+              <select name="modalidade">
+                <option value="todas">Todas</option>
+                <option value="futebol">Futebol</option>
+                <option value="corrida">Corrida</option>
+                <option value="academia">Academia</option>
+                <option value="ciclismo">Ciclismo</option>
+                <option value="basquete">Basquete</option>
+                <option value="natacao">Natação</option>
+              </select>
+            </label>
+            <button class="botao" type="submit">Buscar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefícios da loja: grid com três informações. -->
+    <section class="beneficios" aria-label="Vantagens de comprar na Viva Sport">
+      <div class="container">
+        <ul class="lista-beneficios">
+          <li>
+            <span class="beneficio-icone" aria-hidden="true">🛡️</span>
+            <div>
+              <strong>Compra segura</strong>
+              <p>Seus dados protegidos em todas as etapas.</p>
+            </div>
+          </li>
+          <li>
+            <span class="beneficio-icone" aria-hidden="true">🚚</span>
+            <div>
+              <strong>Entrega para todo o Brasil</strong>
+              <p>Receba seus produtos em casa.</p>
+            </div>
+          </li>
+          <li>
+            <span class="beneficio-icone" aria-hidden="true">🔄</span>
+            <div>
+              <strong>Troca facilitada</strong>
+              <p>Mais tranquilidade para escolher.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Categorias de produtos com imagens e links internos. -->
+    <section id="categorias" class="secao">
+      <div class="container">
+        <div class="titulo-secao">
+          <h2>Explore por modalidade</h2>
+          <p>Encontre os produtos ideais para o esporte que você ama.</p>
+        </div>
+        <ul class="grade-categorias">
+          <li><a class="categoria" href="#produtos"><img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=700&q=85" alt="Campo de futebol" width="700" height="520" loading="lazy"><span>Futebol</span></a></li>
+          <li><a class="categoria" href="#produtos"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=700&q=85" alt="Pessoa correndo ao ar livre" width="700" height="520" loading="lazy"><span>Corrida</span></a></li>
+          <li><a class="categoria" href="#produtos"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=85" alt="Academia com equipamentos de treino" width="700" height="520" loading="lazy"><span>Academia</span></a></li>
+          <li><a class="categoria" href="#produtos"><img src="https://images.unsplash.com/photo-1541625602330-2277f4f46182?auto=format&fit=crop&w=700&q=85" alt="Ciclista pedalando" width="700" height="520" loading="lazy"><span>Ciclismo</span></a></li>
+          <li><a class="categoria" href="#produtos"><img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=700&q=85" alt="Quadra de basquete" width="700" height="520" loading="lazy"><span>Basquete</span></a></li>
+          <li><a class="categoria" href="#produtos"><img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=700&q=85" alt="Nadador em piscina" width="700" height="520" loading="lazy"><span>Natação</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Produtos: cards com imagem, selo, descrição, preço e botão de ação. -->
+    <section id="produtos" class="secao secao-branca">
+      <div class="container">
+        <div class="eventos-topo">
+          <div class="titulo-secao">
+            <h2>Produtos em destaque</h2>
+            <p>Qualidade e conforto para acompanhar seu ritmo.</p>
+          </div>
+          <ul class="filtros" aria-label="Filtros de produtos">
+            <li><a class="ativo" href="#produtos">Todos</a></li>
+            <li><a href="#produtos">Calçados</a></li>
+            <li><a href="#produtos">Roupas</a></li>
+            <li><a href="#produtos">Acessórios</a></li>
+          </ul>
+        </div>
+
+        <div class="grade-eventos">
+
+          <article class="card">
+            <div class="card-imagem">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85" alt="Tênis esportivo vermelho" width="900" height="675" loading="lazy">
+              <span class="data"><strong>20%</strong><span>OFF</span></span>
+              <span class="selo">Mais vendido</span>
+            </div>
+            <div class="card-corpo">
+              <div class="card-info">
+                <p class="categoria-evento">Calçados · Corrida</p>
+                <h3>Tênis Run Max</h3>
+                <ul class="meta">
+                  <li><span class="meta-icone" aria-hidden="true">👟</span> Leve e confortável</li>
+                  <li><span class="meta-icone" aria-hidden="true">📦</span> Disponível para envio</li>
+                </ul>
+              </div>
+              <div class="card-rodape">
+                <p class="preco"><span>por apenas</span> R$ 279,90</p>
+                <a class="botao" href="#contato" aria-label="Comprar Tênis Run Max">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-imagem">
+              <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=900&q=85" alt="Campo de futebol para prática esportiva" width="900" height="675" loading="lazy">
+              <span class="data"><strong>15%</strong><span>OFF</span></span>
+              <span class="selo">Oferta</span>
+            </div>
+            <div class="card-corpo">
+              <div class="card-info">
+                <p class="categoria-evento">Futebol</p>
+                <h3>Bola Pro Oficial</h3>
+                <ul class="meta">
+                  <li><span class="meta-icone" aria-hidden="true">⚽</span> Ótimo controle</li>
+                  <li><span class="meta-icone" aria-hidden="true">📦</span> Disponível para envio</li>
+                </ul>
+              </div>
+              <div class="card-rodape">
+                <p class="preco"><span>por apenas</span> R$ 119,90</p>
+                <a class="botao" href="#contato" aria-label="Comprar Bola Pro Oficial">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-imagem">
+              <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=85" alt="Pessoa treinando em academia" width="900" height="675" loading="lazy">
+              <span class="data"><strong>10%</strong><span>OFF</span></span>
+              <span class="selo">Novidade</span>
+            </div>
+            <div class="card-corpo">
+              <div class="card-info">
+                <p class="categoria-evento">Academia · Roupas</p>
+                <h3>Camiseta Dry Fit</h3>
+                <ul class="meta">
+                  <li><span class="meta-icone" aria-hidden="true">💨</span> Tecido respirável</li>
+                  <li><span class="meta-icone" aria-hidden="true">📏</span> Vários tamanhos</li>
+                </ul>
+              </div>
+              <div class="card-rodape">
+                <p class="preco"><span>por apenas</span> R$ 69,90</p>
+                <a class="botao" href="#contato" aria-label="Comprar Camiseta Dry Fit">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-imagem">
+              <img src="https://images.unsplash.com/photo-1541625602330-2277f4f46182?auto=format&fit=crop&w=900&q=85" alt="Bicicleta esportiva" width="900" height="675" loading="lazy">
+              <span class="data"><strong>25%</strong><span>OFF</span></span>
+              <span class="selo">Oferta</span>
+            </div>
+            <div class="card-corpo">
+              <div class="card-info">
+                <p class="categoria-evento">Ciclismo</p>
+                <h3>Capacete Bike Pro</h3>
+                <ul class="meta">
+                  <li><span class="meta-icone" aria-hidden="true">🚴</span> Design aerodinâmico</li>
+                  <li><span class="meta-icone" aria-hidden="true">🛡️</span> Mais proteção</li>
+                </ul>
+              </div>
+              <div class="card-rodape">
+                <p class="preco"><span>por apenas</span> R$ 149,90</p>
+                <a class="botao" href="#contato" aria-label="Comprar Capacete Bike Pro">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-imagem">
+              <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=900&q=85" alt="Quadra de basquete" width="900" height="675" loading="lazy">
+              <span class="data"><strong>12%</strong><span>OFF</span></span>
+              <span class="selo">Destaque</span>
+            </div>
+            <div class="card-corpo">
+              <div class="card-info">
+                <p class="categoria-evento">Basquete</p>
+                <h3>Kit Treino Basket</h3>
+                <ul class="meta">
+                  <li><span class="meta-icone" aria-hidden="true">🏀</span> Para treinos e jogos</li>
+                  <li><span class="meta-icone" aria-hidden="true">📦</span> Disponível para envio</li>
+                </ul>
+              </div>
+              <div class="card-rodape">
+                <p class="preco"><span>por apenas</span> R$ 189,90</p>
+                <a class="botao" href="#contato" aria-label="Comprar Kit Treino Basket">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Produto indisponível: a classe esgotado altera a aparência do card. -->
+          <article class="card esgotado">
+            <div class="card-imagem">
+              <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85" alt="Mochila esportiva" width="900" height="675" loading="lazy">
+              <span class="data"><strong>30%</strong><span>OFF</span></span>
+              <span class="selo selo-esgotado">Indisponível</span>
+            </div>
+            <div class="card-corpo">
+              <div class="card-info">
+                <p class="categoria-evento">Acessórios</p>
+                <h3>Mochila Sport 30L</h3>
+                <ul class="meta">
+                  <li><span class="meta-icone" aria-hidden="true">🎒</span> Espaço para seus itens</li>
+                  <li><span class="meta-icone" aria-hidden="true">📦</span> Sem estoque no momento</li>
+                </ul>
+              </div>
+              <div class="card-rodape">
+                <p class="preco preco-esgotado"><span>situação</span> Indisponível</p>
+                <a class="botao botao-secundario" href="#contato" aria-label="Avise-me quando a Mochila Sport 30L estiver disponível">Avise-me</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Oferta em destaque: imagem de fundo e chamada para ação. -->
+    <section class="destaque">
+      <div class="container">
+        <div class="destaque-box">
+          <div class="destaque-imagem" role="img" aria-label="Tênis esportivo para corrida"></div>
+          <div class="destaque-info">
+            <span class="hero-tag">Oferta especial</span>
+            <h2>Prepare-se para seu próximo desafio!</h2>
+            <p>Escolha equipamentos confortáveis e dê o próximo passo para alcançar seus objetivos. Aproveite condições especiais em produtos selecionados.</p>
+            <ul class="meta meta-claro">
+              <li><span class="meta-icone" aria-hidden="true">✅</span> Produtos selecionados</li>
+              <li><span class="meta-icone" aria-hidden="true">🚚</span> Entrega para todo o Brasil</li>
+            </ul>
+            <div class="destaque-acoes">
+              <p class="preco"><span>ofertas a partir de</span> R$ 69,90</p>
+              <a class="botao" href="#produtos">Ver ofertas</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como comprar: passos organizados em grid. -->
+    <section id="como-funciona" class="secao secao-branca">
+      <div class="container">
+        <div class="titulo-secao titulo-centro">
+          <h2>Como comprar</h2>
+          <p>Três passos simples para receber seu produto.</p>
+        </div>
+        <ol class="passos">
+          <li>
+            <span class="passo-numero">1</span>
+            <h3>Escolha seu produto</h3>
+            <p>Navegue pelas categorias e encontre o equipamento ideal.</p>
+          </li>
+          <li>
+            <span class="passo-numero">2</span>
+            <h3>Entre em contato</h3>
+            <p>Fale com nossa equipe para confirmar tamanhos, estoque e pagamento.</p>
+          </li>
+          <li>
+            <span class="passo-numero">3</span>
+            <h3>Receba em casa</h3>
+            <p>Combine a entrega e aproveite seus novos produtos esportivos.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Newsletter: formulário ilustrativo para receber novidades. -->
+    <section class="newsletter">
+      <div class="container">
+        <div>
+          <h2>Fique por dentro das novidades!</h2>
+          <p>Cadastre seu e-mail para receber ofertas e lançamentos da Viva Sport.</p>
+        </div>
+        <form class="form-newsletter" action="#" method="post">
+          <input type="email" name="email" placeholder="Seu melhor e-mail" aria-label="Seu e-mail" required>
+          <button class="botao botao-secundario" type="submit">Quero receber</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé com informações da loja, navegação e contato. -->
+  <footer id="contato" class="rodape">
+    <div class="container">
+      <div class="rodape-grade">
+        <div>
+          <p class="rodape-marca"><span>🏅 Viva Sport</span></p>
+          <p>Equipamentos, roupas e acessórios para quem gosta de se movimentar e superar desafios.</p>
+          <ul class="redes">
+            <li><a href="#contato">Instagram</a></li>
+            <li><a href="#contato">Facebook</a></li>
+            <li><a href="#contato">YouTube</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Produtos</h3>
+          <ul>
+            <li><a href="#produtos">Calçados</a></li>
+            <li><a href="#produtos">Roupas</a></li>
+            <li><a href="#produtos">Acessórios</a></li>
+            <li><a href="#categorias">Modalidades</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Ajuda</h3>
+          <ul>
+            <li><a href="#como-funciona">Como comprar</a></li>
+            <li><a href="#contato">Trocas e devoluções</a></li>
+            <li><a href="#contato">Perguntas frequentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contato</h3>
+          <address>
+            <p><a href="mailto:contato@vivasport.exemplo">contato@vivasport.exemplo</a></p>
+            <p>(17) 0000-0000</p>
+            <p>Segunda a sexta, das 9h às 18h</p>
+          </address>
+        </div>
+      </div>
+      <div class="rodape-base">
+        <p>Viva Sport é uma loja fictícia, criada para fins didáticos. Produtos e preços são ilustrativos.</p>
+        <ul class="links-legais">
+          <li><a href="#contato">Termos de uso</a></li>
+          <li><a href="#contato">Privacidade</a></li>
+          <li><a href="#topo">Voltar ao topo</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

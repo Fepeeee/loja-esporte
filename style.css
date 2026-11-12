@@ -1,0 +1,1241 @@
+/* VARIÁVEIS: cores centralizadas para facilitar a personalização do site. */
+:root {
+  --cor-primaria: #123B5D;
+  --cor-primaria-escura: #09263D;
+  --cor-destaque: #B7F000;
+  --cor-fundo: #F4F7F9;
+  --cor-texto: #172B3A;
+  --cor-borda: #DCE5EA;
+  --cor-claro: #EAF3F7;
+  --cor-texto-suave: #526471;
+  --cor-texto-claro: #D8E8EF;
+  --cor-rodape: #061B2A;
+  --cor-rodape-borda: #244254;
+  --cor-cinza: #6B7780;
+  --branco: #FFFFFF;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+/* Viva Sport — adaptação da folha de estilos do projeto original.
+   Mantém seletores, box model, imagens de fundo, posicionamento, Flexbox,
+   Grid e responsividade; acrescenta variáveis, Google Fonts, medidas em rem
+   para os textos e transições nos botões, cards e imagens. */
+
+/* RESET: zera as margens e o espaçamento padrão do navegador.
+   box-sizing: border-box faz width e height já contarem o padding e a borda (o box model fica previsível). */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CORPO DA PÁGINA: fonte, cor de fundo e cor do texto que todos os elementos herdam.
+   line-height é a altura da linha (1.5 = uma vez e meia o tamanho da fonte). */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.5;
+}
+
+/* IMAGENS: max-width 100% impede a imagem de passar do espaço do pai;
+   height auto mantém a proporção original. */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* LISTAS: remove os marcadores (bolinhas e números). */
+ul,
+ol {
+  list-style: none;
+}
+
+/* CONTAINER: caixa central que limita a largura do conteúdo.
+   margin 0 auto centraliza na horizontal. */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* PULAR PARA O CONTEÚDO: link para quem navega pelo teclado.
+   Fica escondido acima da tela (top negativo) e desce quando recebe o foco (Tab). */
+.pular-conteudo {
+  position: absolute;
+  top: -60px;
+  left: 16px;
+  z-index: 10;
+  background-color: var(--branco);
+  color: var(--cor-primaria);
+  font-weight: bold;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.pular-conteudo:focus {
+  top: 12px;
+}
+
+/* BOTÃO PADRÃO: a classe .botao vale para links e botões do site.
+   inline-block permite usar padding e largura, mantendo o botão do tamanho do texto. */
+.botao {
+  display: inline-block;
+  background-color: var(--cor-destaque);
+  color: var(--cor-primaria-escura);
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* VARIAÇÃO: botão só com borda (usado no Entrar). */
+.botao-contorno {
+  background-color: transparent;
+  color: var(--branco);
+  padding: 8px 20px;
+  border: 2px solid var(--branco);
+}
+
+/* VARIAÇÃO: botão azul (usado no Avise-me e na newsletter). */
+.botao-secundario {
+  background-color: var(--cor-primaria);
+  color: var(--branco);
+}
+
+/* CABEÇALHO: faixa azul no topo. box-shadow cria a sombra: deslocamento horizontal, vertical, desfoque e cor. */
+.cabecalho {
+  background-color: var(--cor-primaria);
+  padding: 14px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Flexbox: logo à esquerda e menu à direita (space-between), alinhados ao centro na vertical. */
+.cabecalho .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+/* LOGO: imagem e nome lado a lado (display flex) com espaço entre eles (gap). */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--branco);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* MENU: links e botão Entrar na mesma linha. */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Lista de links em linha: display flex coloca os li lado a lado. */
+.menu ul {
+  display: flex;
+  gap: 24px;
+}
+
+.menu ul a {
+  color: var(--branco);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* HERO: a faixa de abertura. A imagem vem de background-image;
+   cover preenche toda a área e center mantém o centro da foto visível.
+   position relative serve de referência para a camada escura (.hero-fundo). */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 560px;
+  background-image: url("https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=2000&q=90");
+  background-size: cover;
+  background-position: center;
+}
+
+/* CAMADA ESCURA: position absolute cobre o hero inteiro (top, left, width, height).
+   rgba é uma cor com transparência (o último valor): deixa a foto aparecer por baixo. */
+.hero-fundo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(4, 26, 42, 0.78);
+}
+
+/* O texto precisa ficar na frente da camada escura: position relative + z-index maior. */
+.hero .container {
+  position: relative;
+  z-index: 1;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+/* Bloco de texto do hero, com largura máxima para não esticar demais. */
+.hero-texto {
+  max-width: 820px;
+  color: var(--branco);
+}
+
+/* ETIQUETA verde-limão. text-transform deixa o texto em maiúsculas e letter-spacing espaça as letras. */
+.hero-tag {
+  display: inline-block;
+  background-color: var(--cor-destaque);
+  color: var(--cor-primaria-escura);
+  font-size: .8125rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+/* TÍTULO PRINCIPAL: letter-spacing negativo aproxima as letras, o que fica melhor em títulos grandes. */
+.hero-texto h1 {
+  font-size: 3.25rem;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+.hero-texto p {
+  font-size: 1.125rem;
+  max-width: 600px;
+}
+
+/* FORMULÁRIO DE BUSCA: caixa branca com os campos lado a lado (flexbox). */
+.busca {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--branco);
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* CADA CAMPO: flex 1 divide o espaço igualmente. A borda direita faz o separador. */
+.campo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 4px 12px;
+  border-right: 1px solid var(--cor-borda);
+}
+
+/* Rótulo pequeno acima de cada campo. */
+.campo span {
+  font-size: .75rem;
+  font-weight: bold;
+  color: var(--cor-primaria);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Campos sem borda e com fundo transparente, para parecerem parte da caixa branca. */
+.campo input,
+.campo select {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  color: var(--cor-texto);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  padding: 4px 0;
+}
+
+/* O botão Buscar fica maior que o padrão (seletor de descendente: .botao dentro de .busca). */
+.busca .botao {
+  padding: 14px 28px;
+}
+
+/* BENEFÍCIOS: faixa branca logo abaixo do hero. */
+.beneficios {
+  background-color: var(--branco);
+  border-bottom: 1px solid var(--cor-borda);
+  padding: 28px 0;
+}
+
+/* Grid de 3 colunas iguais: repeat(3, 1fr) (fr = fração do espaço disponível). */
+.lista-beneficios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Cada benefício: grid com a coluna do ícone (largura fixa) e a do texto (o resto). */
+.lista-beneficios li {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Quadradinho que guarda o ícone, centralizado com flexbox. */
+.beneficio-icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background-color: var(--cor-claro);
+}
+
+/* Título do benefício. */
+.lista-beneficios strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--cor-texto);
+}
+
+.lista-beneficios p {
+  font-size: .875rem;
+  color: var(--cor-texto-suave);
+}
+
+/* SEÇÕES: espaço em cima e embaixo de cada bloco do site. */
+.secao {
+  padding: 64px 0;
+}
+
+.secao-branca {
+  background-color: var(--branco);
+}
+
+/* TÍTULO DE SEÇÃO: h2 + frase de apoio. */
+.titulo-secao {
+  margin-bottom: 32px;
+}
+
+.titulo-secao h2 {
+  font-size: 2rem;
+  color: var(--cor-primaria);
+  margin-bottom: 8px;
+}
+
+.titulo-secao p {
+  font-size: 1rem;
+  color: var(--cor-texto-suave);
+}
+
+.titulo-centro {
+  text-align: center;
+}
+
+/* CATEGORIAS: grid de 6 colunas. */
+.grade-categorias {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+/* Cada categoria é um link com a foto. overflow hidden corta o que passar da borda arredondada.
+   position relative serve de referência para o nome (span) ficar em cima da foto. */
+.categoria {
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.categoria img {
+  display: block;
+  width: 100%;
+}
+
+/* Nome da categoria sobre a foto: position absolute colado embaixo (bottom 0). */
+.categoria span {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 14px;
+  background-color: rgba(4, 26, 42, 0.84);
+  color: var(--branco);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Título à esquerda e filtros à direita; flex-wrap permite quebrar linha em telas menores. */
+.eventos-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.eventos-topo .titulo-secao {
+  margin-bottom: 0;
+}
+
+/* FILTROS: botões em formato de pílula (border-radius alto). */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filtros a {
+  display: block;
+  padding: 8px 18px;
+  border: 2px solid var(--cor-primaria);
+  border-radius: 24px;
+  color: var(--cor-primaria);
+  text-decoration: none;
+  font-size: .875rem;
+  font-weight: bold;
+}
+
+.filtros a.ativo {
+  background-color: var(--cor-primaria);
+  color: var(--branco);
+}
+
+/* GRADE DE EVENTOS: 3 colunas, com espaço (gap) entre os cards. */
+.grade-eventos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* CARD: flex em coluna (foto em cima, informações embaixo).
+   overflow hidden mantém a foto dentro da borda arredondada. */
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(18, 59, 93, 0.08);
+}
+
+/* Área da foto: position relative para a data e o selo ficarem sobre ela. */
+.card-imagem {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-imagem img {
+  display: block;
+  width: 100%;
+}
+
+/* BADGE DA DATA: position absolute no canto superior esquerdo da foto. */
+.data {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: var(--branco);
+  border-radius: 10px;
+  padding: 8px 14px;
+  text-align: center;
+  line-height: 1.1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.data strong {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--cor-primaria);
+}
+
+.data span {
+  font-size: .75rem;
+  font-weight: bold;
+  color: var(--cor-texto-suave);
+  letter-spacing: 1px;
+}
+
+/* SELO (Últimos ingressos, Disponível): canto superior direito da foto. */
+.selo {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: var(--cor-destaque);
+  color: var(--cor-primaria-escura);
+  font-size: .75rem;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+/* Selo cinza quando o evento está esgotado. */
+.selo-esgotado {
+  background-color: var(--cor-cinza);
+  color: var(--branco);
+}
+
+/* Parte de baixo do card. justify-content space-between empurra o rodapé do card para o fim,
+   por isso os botões ficam alinhados mesmo com títulos de tamanhos diferentes. */
+.card-corpo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding: 20px;
+}
+
+/* Nome da categoria dentro do card (Show, Teatro...). */
+.categoria-evento {
+  font-size: .75rem;
+  font-weight: bold;
+  color: var(--cor-primaria);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+/* Título do evento. */
+.card h3 {
+  font-size: 1.25rem;
+  color: var(--cor-texto);
+  margin-bottom: 12px;
+}
+
+/* LISTA DE INFORMAÇÕES: local e horário, um embaixo do outro. */
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+/* Cada linha tem ícone + texto lado a lado, alinhados ao centro. */
+.meta li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .875rem;
+  color: var(--cor-texto-suave);
+}
+
+/* Rodapé do card: preço à esquerda e botão à direita, separados por uma linha. */
+.card-rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+/* PREÇO. */
+.preco {
+  font-size: 1.375rem;
+  font-weight: bold;
+  color: var(--cor-primaria);
+  line-height: 1.1;
+}
+
+/* Texto pequeno acima do valor (a partir de). display block joga o span para uma linha só dele. */
+.preco span {
+  display: block;
+  font-size: .75rem;
+  font-weight: normal;
+  color: var(--cor-texto-suave);
+}
+
+/* Preço em cinza quando esgotado. */
+.preco-esgotado {
+  color: var(--cor-cinza);
+}
+
+/* Produto indisponível: foto em preto e branco */
+/* Seletor de descendente: só a imagem do card esgotado.
+   filter grayscale deixa a foto em preto e branco (100 por cento = sem nenhuma cor). */
+.esgotado .card-imagem img {
+  filter: grayscale(100%);
+}
+
+/* DESTAQUE: um evento em evidência. */
+.destaque {
+  padding: 64px 0;
+}
+
+/* Grid de 2 colunas iguais: foto à esquerda e informações à direita. */
+.destaque-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--cor-primaria);
+  box-shadow: 0 12px 32px rgba(9, 38, 61, 0.28);
+}
+
+/* A foto aqui é background-image de um div (não uma tag img), por isso precisa de min-height. */
+.destaque-imagem {
+  min-height: 380px;
+  background-image: url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=90");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Coluna de informações: flex em coluna, centralizada na vertical. */
+.destaque-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 48px;
+  color: var(--branco);
+}
+
+/* Ajustes dentro do destaque (seletores de descendente). */
+.destaque-info .hero-tag {
+  margin-bottom: 0;
+}
+
+.destaque-info h2 {
+  font-size: 2.25rem;
+  line-height: 1.15;
+}
+
+.destaque-info p {
+  font-size: 1rem;
+  color: var(--cor-texto-claro);
+}
+
+.destaque-info .meta {
+  margin-bottom: 0;
+}
+
+/* Versão clara da lista de informações, para fundo roxo. */
+.meta-claro li {
+  color: var(--branco);
+}
+
+/* Preço e botão lado a lado. */
+.destaque-acoes {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.destaque-acoes .preco {
+  color: var(--branco);
+}
+
+.destaque-acoes .preco span {
+  color: var(--cor-texto-claro);
+}
+
+/* COMO FUNCIONA: grid de 3 colunas, uma por passo. */
+.passos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.passos li {
+  text-align: center;
+  padding: 32px 24px;
+  background-color: var(--cor-fundo);
+  border-radius: 16px;
+}
+
+/* Círculo com o número: width e height iguais + border-radius 50 por cento = círculo perfeito. */
+.passo-numero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background-color: var(--cor-primaria);
+  color: var(--branco);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.passos h3 {
+  font-size: 1.25rem;
+  color: var(--cor-texto);
+  margin-bottom: 8px;
+}
+
+.passos p {
+  font-size: .9375rem;
+  color: var(--cor-texto-suave);
+}
+
+/* NEWSLETTER: faixa verde-limão com chamada e formulário de e-mail. */
+.newsletter {
+  background-color: var(--cor-destaque);
+  padding: 48px 0;
+}
+
+.newsletter .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.newsletter h2 {
+  font-size: 1.75rem;
+  color: var(--cor-primaria-escura);
+}
+
+.newsletter p {
+  font-size: 1rem;
+  color: var(--cor-primaria-escura);
+}
+
+/* Campo e botão lado a lado; flex 1 faz o campo ocupar o espaço que sobra. */
+.form-newsletter {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+  max-width: 480px;
+}
+
+.form-newsletter input {
+  flex: 1;
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+}
+
+/* white-space nowrap impede o texto do botão de quebrar em duas linhas. */
+.form-newsletter .botao {
+  white-space: nowrap;
+}
+
+/* RODAPÉ: fundo azul bem escuro. */
+.rodape {
+  background-color: var(--cor-rodape);
+  color: var(--cor-texto-claro);
+  padding-top: 56px;
+  font-size: .875rem;
+}
+
+/* 4 colunas com larguras diferentes: a primeira é o dobro das de links. */
+.rodape-grade {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+/* Logo e nome da marca no rodapé. */
+.rodape-marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: var(--branco);
+  font-size: 1.375rem;
+  font-weight: bold;
+}
+
+/* Títulos das colunas do rodapé. */
+.rodape h3 {
+  font-size: 1rem;
+  color: var(--branco);
+  margin-bottom: 16px;
+}
+
+.rodape li {
+  margin-bottom: 10px;
+}
+
+/* Links do rodapé sem sublinhado. */
+.rodape a {
+  color: var(--cor-texto-claro);
+  text-decoration: none;
+}
+
+/* A tag address vem em itálico por padrão; font-style normal tira o itálico. */
+.rodape address {
+  font-style: normal;
+}
+
+.rodape address p {
+  margin-bottom: 10px;
+}
+
+/* Links das redes sociais em linha. */
+.redes {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.redes li {
+  margin-bottom: 0;
+}
+
+/* Faixa final do rodapé: aviso à esquerda e links legais à direita. */
+.rodape-base {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px 0;
+  border-top: 1px solid var(--cor-rodape-borda);
+  font-size: .8125rem;
+}
+
+/* Links legais em linha. */
+.links-legais {
+  display: flex;
+  gap: 20px;
+}
+
+.links-legais li {
+  margin-bottom: 0;
+}
+
+/* ============ Responsividade (telas menores) ============ */
+/* @media aplica as regras de dentro só quando a janela tem no máximo essa largura.
+   Aqui as colunas diminuem para caber em tablets e celulares. */
+@media (max-width: 1024px) {
+  .grade-categorias {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grade-eventos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rodape-grade {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .cabecalho .container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .menu,
+  .menu ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .hero {
+    min-height: 0;
+  }
+
+  .hero-texto {
+    width: 100%;
+  }
+
+  .hero-texto h1 {
+    font-size: 2.25rem;
+  }
+
+  .busca {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .campo {
+    padding-bottom: 8px;
+    border-right: none;
+    border-bottom: 1px solid var(--cor-borda);
+  }
+
+  .lista-beneficios {
+    grid-template-columns: 1fr;
+  }
+
+  .destaque-box {
+    grid-template-columns: 1fr;
+  }
+
+  .destaque-imagem {
+    min-height: 240px;
+  }
+
+  .destaque-info {
+    padding: 32px 24px;
+  }
+
+  .passos {
+    grid-template-columns: 1fr;
+  }
+
+  .rodape-base {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .grade-categorias {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grade-eventos {
+    grid-template-columns: 1fr;
+  }
+
+  .form-newsletter {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .rodape-grade {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* AJUSTES DA VIVA SPORT E TRANSIÇÕES: pequenos movimentos ao passar o mouse. */
+.botao,
+.menu ul a,
+.filtros a,
+.card,
+.categoria img,
+.logo {
+  transition: all 0.3s ease;
+}
+
+.botao:hover {
+  transform: translateY(-3px);
+  filter: brightness(0.95);
+  box-shadow: 0 8px 18px rgba(9, 38, 61, 0.18);
+}
+
+.botao:focus-visible,
+.menu a:focus-visible,
+.rodape a:focus-visible,
+.categoria:focus-visible {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 4px;
+}
+
+.menu ul a:hover {
+  color: var(--cor-destaque);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(18, 59, 93, 0.16);
+}
+
+.categoria img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.categoria:hover img {
+  transform: scale(1.07);
+}
+
+.card-imagem img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.meta-icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  flex-shrink: 0;
+}
+
+.logo:hover {
+  opacity: 0.86;
+}
+
+/* Respeita usuários que preferem movimento reduzido no dispositivo. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* ==========================================================
+   REFINO VISUAL — movimentos mais suaves e layout mais fluido
+   ========================================================== */
+:root {
+  --movimento-suave: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --tempo-curto: 220ms;
+  --tempo-medio: 380ms;
+  --sombra-hover: 0 18px 38px rgba(9, 38, 61, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Cabeçalho acompanha a navegação sem ocupar espaço visual demais. */
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: box-shadow var(--tempo-medio) var(--movimento-suave);
+}
+
+.cabecalho:hover {
+  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.16);
+}
+
+/* Links do menu com uma linha que aparece suavemente. */
+.menu ul a {
+  position: relative;
+  display: inline-block;
+  padding: 0.35rem 0;
+  transition: color var(--tempo-curto) ease;
+}
+
+.menu ul a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--cor-destaque);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--tempo-medio) var(--movimento-suave);
+}
+
+.menu ul a:hover::after,
+.menu ul a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Botões: resposta rápida, sem movimentos bruscos. */
+.botao {
+  transition: transform var(--tempo-curto) var(--movimento-suave),
+              box-shadow var(--tempo-curto) ease,
+              background-color var(--tempo-curto) ease,
+              color var(--tempo-curto) ease,
+              filter var(--tempo-curto) ease;
+  will-change: transform;
+}
+
+.botao:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+  box-shadow: 0 9px 22px rgba(9, 38, 61, 0.17);
+}
+
+.botao:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}
+
+/* Cards sobem só um pouco e ganham sombra progressivamente. */
+.card {
+  transition: transform var(--tempo-medio) var(--movimento-suave),
+              box-shadow var(--tempo-medio) var(--movimento-suave),
+              border-color var(--tempo-medio) ease;
+  will-change: transform;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-hover);
+  border-color: rgba(18, 59, 93, 0.18);
+}
+
+.card-imagem {
+  overflow: hidden;
+}
+
+.card-imagem img,
+.categoria img {
+  transition: transform 650ms var(--movimento-suave),
+              filter 450ms ease;
+  transform: scale(1);
+}
+
+.card:hover .card-imagem img,
+.categoria:hover img {
+  transform: scale(1.045);
+}
+
+/* Categorias ganham destaque sem deslocar o restante da página. */
+.categoria {
+  transition: transform var(--tempo-medio) var(--movimento-suave),
+              box-shadow var(--tempo-medio) ease;
+}
+
+.categoria:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(9, 38, 61, 0.18);
+}
+
+.categoria span {
+  transition: padding var(--tempo-medio) var(--movimento-suave),
+              background-color var(--tempo-medio) ease;
+}
+
+.categoria:hover span {
+  padding-bottom: 14px;
+  background-color: rgba(4, 26, 42, 0.88);
+}
+
+/* Campos de busca com foco mais claro e agradável. */
+.campo input,
+.campo select,
+.form-newsletter input {
+  transition: box-shadow var(--tempo-curto) ease,
+              background-color var(--tempo-curto) ease;
+}
+
+.campo:focus-within {
+  border-radius: 8px;
+  background-color: rgba(183, 240, 0, 0.08);
+}
+
+.campo input:focus,
+.campo select:focus,
+.form-newsletter input:focus {
+  outline: none;
+  box-shadow: 0 2px 0 var(--cor-destaque);
+}
+
+/* Entradas leves ao carregar a página. */
+@keyframes aparecerSuave {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-texto {
+  animation: aparecerSuave 700ms var(--movimento-suave) both;
+}
+
+.lista-beneficios li,
+.grade-categorias li,
+.grade-eventos .card {
+  animation: aparecerSuave 650ms var(--movimento-suave) both;
+}
+
+.lista-beneficios li:nth-child(2),
+.grade-categorias li:nth-child(2),
+.grade-eventos .card:nth-child(2) { animation-delay: 70ms; }
+
+.lista-beneficios li:nth-child(3),
+.grade-categorias li:nth-child(3),
+.grade-eventos .card:nth-child(3) { animation-delay: 140ms; }
+
+.grade-categorias li:nth-child(4),
+.grade-eventos .card:nth-child(4) { animation-delay: 210ms; }
+
+.grade-categorias li:nth-child(5),
+.grade-eventos .card:nth-child(5) { animation-delay: 280ms; }
+
+.grade-categorias li:nth-child(6),
+.grade-eventos .card:nth-child(6) { animation-delay: 350ms; }
+
+/* Pequeno movimento no produto em destaque. */
+.destaque-box {
+  transition: transform var(--tempo-medio) var(--movimento-suave),
+              box-shadow var(--tempo-medio) ease;
+}
+
+.destaque-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(9, 38, 61, 0.22);
+}
+
+/* Tipografia e espaçamentos se ajustam gradualmente ao tamanho da tela. */
+.hero-texto h1 {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+.secao,
+.destaque {
+  padding-top: clamp(2.75rem, 6vw, 4rem);
+  padding-bottom: clamp(2.75rem, 6vw, 4rem);
+}
+
+/* Acessibilidade: não força animações para quem prefere movimento reduzido. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-texto,
+  .lista-beneficios li,
+  .grade-categorias li,
+  .grade-eventos .card {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Nos cards, a entrada usa apenas opacidade para não competir com o movimento do hover. */
+@keyframes aparecerOpacidade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.grade-eventos .card {
+  animation-name: aparecerOpacidade;
+}
